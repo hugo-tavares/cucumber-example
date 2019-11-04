@@ -18,14 +18,9 @@ public class QuickViewPage extends BasePage<QuickViewPage> {
 	}
 	
 	public QuickViewPage waitUntilLoaded() {
-	// Not ideal but for some reason Selenium is changing to the frame before it loads and then it can't find the element in the next step
-	try {
-		Thread.sleep(3000);
-	} catch (InterruptedException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+
 		getDSL()
+			.waitUntilInvisible(XPATH_LOADING)
 			.switchToFrame(XPATH_IFRAME)
 			.waitUntilExistent(XPATH_PRODUCT_DETAILS)
 			.switchToDefault();

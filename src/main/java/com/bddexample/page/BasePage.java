@@ -7,6 +7,7 @@ public abstract class BasePage<T extends BasePage<T>> {
 	
 	private static final String INDEX_URL = "http://automationpractice.com/index.php";
 	private static final String LOGIN_URL = "http://automationpractice.com/index.php?controller=authentication&back=my-account";
+	protected static final String XPATH_LOADING = "//div[@id='fancybox-loading']";
 	
 	protected DSL getDSL() {
 		if (dsl == null) {
