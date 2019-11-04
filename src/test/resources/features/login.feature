@@ -1,6 +1,9 @@
 @Login @Ignore
 Feature: Sign In
 
+Background:
+		Given I go to the website's url
+		
   Scenario Outline: Login with non-registered credentials
     When I try to sign in typing the email <email> and password <password>
     Then the "Authentication failed" should be shown

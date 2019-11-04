@@ -29,18 +29,9 @@ public abstract class BasePage<T extends BasePage<T>> {
 		return new IndexPage();
 	}
 	
-//	public LoginPage goToLoginPage() {
-//		
-//		return new LoginPage();
-//	}
-//	
-//	public LoginPage goToLoginPage() {
-//		
-//		return new LoginPage();
-//	}
-//	
-//	@SuppressWarnings("unchecked")
-//	public T selecionarDia(String dia) {
-//		return (T) this;
-//	}
+	@SuppressWarnings("unchecked")
+	public T refreshPage() {
+		getDSL().refresh();
+		return (T) this;
+	}
 }

@@ -73,6 +73,11 @@ public class DSL {
 		return this;
 	}
 	
+	public DSL refresh() {
+		DriverFactory.getDriver().navigate().refresh();
+		return this;
+	}
+	
 	public DSL waitUntilClickable(String xpath) {
 		(new WebDriverWait(getDriver(), 10))
 				.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
@@ -84,9 +89,25 @@ public class DSL {
 		return this;
 	}
 	
-	public void waitUntilExistent(String xPath) {
+	public DSL switchToActiveFrame() {
+		getDriver().switchTo().activeElement();
+		return this;
+	}
+	public DSL switchToFrame(String xpath) {
+		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(),10);
+		 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(getElement(xpath)));
+		return this;
+	}
+	
+	public DSL switchToDefault() {
+		getDriver().switchTo().defaultContent();
+		return this;
+	}
+	
+	public DSL waitUntilExistent(String xPath) {
 		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated((By.xpath(xPath))));
+		return this;
 	}
 	
 	private WebElement getElement(String xpath) {

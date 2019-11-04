@@ -1,24 +1,10 @@
-@tag @Ignore
-Feature: Title of your feature
-  I want to use this template for my feature file
+@QuickView @Implemented
+Feature: Quick View
 
-  @tag1
-  Scenario: Title of your scenario
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
+  Background: 
+    Given I go to the website's url
 
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
-
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+  Scenario: Trying to add to the wishlist without being logged in
+    Given I go to the quick view of the product called "Blouse" which costs "$27.00"
+    When I try to add it to my wishlist
+    Then the message "You must be logged in to manage your wishlist." should be shown

@@ -1,5 +1,4 @@
-
-@Cart
+@Cart @Implemented
 Feature: Shopping Cart
 	
 	Background:
