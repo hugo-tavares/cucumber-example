@@ -1,6 +1,6 @@
 # cucumber-example
 
- This project is an example of BDD style automated testing using Java, Cucumber and Selenium.
+ This Eclipse project is an example of BDD style automated testing using Java, Cucumber and Selenium.
  
  ## Structure
  - The Webdrivers utilized in the project are contained in ```src/main/resources/webdrivers/```
